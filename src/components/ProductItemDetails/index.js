@@ -160,12 +160,13 @@ class ProductItemDetails extends Component {
                 <hr className="horizontal-line" />
                 <div className="quantity-container">
                   <button
-                    type="button"
                     className="quantity-controller-button"
+                    type="button"
                     onClick={this.onDecrementQuantity}
                     data-testid="minus"
                   >
                     <BsDashSquare className="quantity-controller-icon" />
+                    <span className="visually-hidden">Decrease quantity</span>
                   </button>
                   <p className="quantity">{quantity}</p>
                   <button
@@ -175,6 +176,7 @@ class ProductItemDetails extends Component {
                     data-testid="plus"
                   >
                     <BsPlusSquare className="quantity-controller-icon" />
+                    <span className="visually-hidden">Increase quantity</span>
                   </button>
                 </div>
                 <button

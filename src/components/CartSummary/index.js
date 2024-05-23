@@ -1,6 +1,6 @@
 // Write your code here
-import CartContext from '../../context/CartContext'
 import Popup from 'reactjs-popup'
+import CartContext from '../../context/CartContext'
 import Payment from '../Payment'
 import './index.css'
 
@@ -8,11 +8,10 @@ const CartSummary = () => (
   <CartContext.Consumer>
     {value => {
       const {cartList} = value
-      let total = 0
-
-      for (let item of cartList) {
-        total += item.price * item.quantity
-      }
+      const total = cartList.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0,
+      )
 
       return (
         <div className="container-total">
@@ -28,7 +27,7 @@ const CartSummary = () => (
             }
             position="top  left"
           >
-            <Payment close={close} />
+            <Payment />
           </Popup>
         </div>
       )

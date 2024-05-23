@@ -26,8 +26,8 @@ const paymentMethod = [
   {
     id: 'Net Banking',
     isDisable: true,
-    text: 'Net Banking'
-  }
+    text: 'Net Banking',
+  },
 ]
 
 const Payment = () => {
@@ -35,35 +35,32 @@ const Payment = () => {
   const [isPaymentSelected, setPaymentMethod] = useState(false)
   const [isOrderItems, setisOrderItems] = useState(false)
 
-  let total = 0
-
-  for (let item of cartList) {
-    total += item.price * item.quantity
-  }
+  const total = cartList.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  )
 
   const onChangePayment = () => {
     setPaymentMethod(true)
   }
-  const renderPaymentMethod = () => {
-    return (
-      <ul className="payment-ul">
-        {paymentMethod.map(item => (
-          <li className="pay-list" key={item.id}>
-            <input
-              type="radio"
-              onClick={onChangePayment}
-              name="paymentMethod"
-              disabled={item.isDisable}
-              id={item.id}
-            />
-            <label className="label" htmlFor={item.id}>
-              {item.text}
-            </label>
-          </li>
-        ))}
-      </ul>
-    )
-  }
+  const renderPaymentMethod = () => (
+    <ul className="payment-ul">
+      {paymentMethod.map(item => (
+        <li className="pay-list" key={item.id}>
+          <input
+            type="radio"
+            onClick={onChangePayment}
+            name="paymentMethod"
+            disabled={item.isDisable}
+            id={item.id}
+          />
+          <label className="label" htmlFor={item.id}>
+            {item.text}
+          </label>
+        </li>
+      ))}
+    </ul>
+  )
 
   const onChangeStatus = () => {
     setisOrderItems(true)
