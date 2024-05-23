@@ -1,0 +1,33 @@
+/* Write your CSS here */
+.total-heading {
+  color: #171f46;
+  font-size: 20px;
+}
+.span-heading {
+  color: #616e7c;
+  font-weight: bold;
+}
+.items-length {
+  color: #616e7c;
+  font-size: 20px;
+}
+.container-total {
+  align-self: flex-end;
+}
+.button-checkout {
+  background-color: #0b69ff;
+  height: 40px;
+  width: 120px;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+}
+.pop-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  background-color: white;
+}
